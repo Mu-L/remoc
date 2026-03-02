@@ -86,7 +86,7 @@ pub struct Cfg {
     /// [Sender::try_send](super::Sender::try_send).
     /// It will not affect [remote channels](crate::rch).
     ///
-    /// By default this is 16.
+    /// By default this is 128.
     /// This must not be zero.
     pub shared_send_queue: usize,
     /// Length of transport send queue.
@@ -95,7 +95,7 @@ pub struct Cfg {
     /// Raising this may improve performance but might incur a slight increase in latency.
     /// For minimum latency this should be set to 1.
     ///
-    /// By default this is 16.
+    /// By default this is 128.
     /// This must not be zero.
     pub transport_send_queue: usize,
     /// Length of transport receive queue.
@@ -104,7 +104,7 @@ pub struct Cfg {
     /// Raising this may improve performance but might incur a slight increase in latency.
     /// For minimum latency this should be set to 1.
     ///
-    /// By default this is 16.
+    /// By default this is 128.
     /// This must not be zero.
     pub transport_receive_queue: usize,
     /// Maximum number of outstanding connection requests.
@@ -128,9 +128,9 @@ impl Default for Cfg {
             max_received_ports: 128,
             chunk_size: 16_384,
             receive_buffer: 524_288,
-            shared_send_queue: 16,
-            transport_send_queue: 16,
-            transport_receive_queue: 16,
+            shared_send_queue: 128,
+            transport_send_queue: 128,
+            transport_receive_queue: 128,
             connect_queue: 128,
             _non_exhaustive: (),
         }
