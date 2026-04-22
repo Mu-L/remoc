@@ -161,7 +161,7 @@ where
     /// Creates a receiver that forwards values from the given local watch receiver.
     ///
     /// The returned receiver may be sent to remote endpoints via channels.
-    /// Any send errors that occur during forwarding are silently dropped; 
+    /// Any send errors that occur during forwarding are silently dropped;
     /// use [`forward`](super::forward) if you need to observe them.
     pub fn forwarded(local_rx: tokio::sync::watch::Receiver<T>) -> Self {
         let (_fwd, rx) = super::forward(local_rx);
