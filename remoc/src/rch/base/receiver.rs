@@ -223,6 +223,11 @@ where
         }
     }
 
+    /// Consumes this base remote receiver and returns the underlying [chmux] receiver.
+    pub fn into_inner(self) -> chmux::Receiver {
+        self.receiver
+    }
+
     /// Receive an item from the remote endpoint.
     pub async fn recv(&mut self) -> Result<Option<T>, RecvError> {
         if self.default_max_ports.is_none() {

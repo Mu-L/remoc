@@ -259,6 +259,11 @@ where
         }
     }
 
+    /// Consumes this base remote sender and returns the underlying [chmux] sender.
+    pub fn into_inner(self) -> chmux::Sender {
+        self.sender
+    }
+
     fn serialize_buffered(
         allocator: chmux::PortAllocator, storage: AnyStorage, item: &T, limit: usize,
     ) -> Result<Option<(BytesMut, PortSerializer)>, SerializationError> {
